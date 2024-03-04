@@ -6,9 +6,14 @@ console.log("key", tmdbApiKey)
 // https://api.themoviedb.org/3/tv/popular?language=en-US&page=1
 
 export const tmdbApi = createApi({
-    reducerPath: 'tmdbAPi',
+    reducerPath: 'tmdbApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.themoviedb.org/3' }),
     endpoints: (builder) => ({
+//* Get Genres
+getGenres: builder.query({
+    query: () =>`genre/movie/list?api_key=${tmdbApiKey}`
+}),
+
         //* Get Movies by [Type] 
         getMovies: builder.query({
             query: () => `/movie/popular?page=${page}&api_key=${tmdbApiKey}`,
@@ -18,4 +23,5 @@ export const tmdbApi = createApi({
 
 export const {
     useGetMoviesQuery,
+    useGetGenresQuery,
 } = tmdbApi;
