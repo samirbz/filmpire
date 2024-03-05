@@ -27,11 +27,11 @@ const Search = () => {
         onKeyPress={handleKeyPress}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        variant="standard"
+        variant='standard'
         InputProps={{
           className: classes.input,
           startAdornment: (
-            <InputAdornment position="start">
+            <InputAdornment position='start'>
               <SearchIcon />
             </InputAdornment>
           ),

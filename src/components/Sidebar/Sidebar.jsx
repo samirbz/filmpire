@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/styles';
 import { UseDispatch, useDispatch, useSelector } from 'react-redux';
 
-import { selectGenreIdOrCategory } from '../../features/currentGenreOrCategory';
+import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 
 import { useGetGenresQuery } from '../../services/TMDB';
 import useStyles from './styles';
@@ -55,7 +55,7 @@ const Sidebar = ({ setMobileOpen }) => {
         {categories.map(({ label, value }) => (
           <Link key={value} className={classes.links} to='/'>
             <ListItem
-              onClick={() => dispatch(selectGenreIdOrCategory(value))}
+              onClick={() => dispatch(selectGenreOrCategory(value))}
               button
             >
               <ListItemIcon>
@@ -81,7 +81,7 @@ const Sidebar = ({ setMobileOpen }) => {
           data.genres.map(({ name, id }) => (
             <Link key={name} className={classes.links} to='/'>
               <ListItem
-                onClick={() => dispatch(selectGenreIdOrCategory(id))}
+                onClick={() => dispatch(selectGenreOrCategory(id))}
                 button
               >
                 <ListItemIcon>
